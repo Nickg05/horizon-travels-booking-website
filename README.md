@@ -25,12 +25,9 @@ Database	MySQL
 Version Control	Git & GitHub
 🖥️ Usage
 
-Download the latest release: HorizonTravelsWebsite.zip
+Clone the repository:
 
-Or clone the repository:
-
-git clone https://github.com/Aaron-Antal-Bento/horizon-travels.git
-
+git clone (https://github.com/Nickg05/horizon-travels-booking-website.git)
 
 Then:
 
