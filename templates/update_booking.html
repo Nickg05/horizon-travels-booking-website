@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Booking</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <input type="checkbox" id="check" />
+    <label for="check" class="checkbtn">
+      <img src="/static/hamburger.png" alt="Menu" />
+    </label>
+    <label class="logo">Horizon Travels</label>
+    <ul>
+      <li><a href="{{ url_for('welcome') }}">Home</a></li>
+      <li><a href="{{ url_for('bookings') }}">Manage Bookings</a></li>
+      <li>
+        <a href="{{ url_for('user_profile') }}">
+          <img src="/static/user.png" alt="User Profile" style="height: 24px; vertical-align: middle;" />
+        </a>
+      </li>
+      {% if session.get('logged_in') %}
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+      {% else %}
+        <li><a href="{{ url_for('login') }}">Login/Register</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+
+  <!-- Update Booking Form -->
+  <div class="container">
+    <h1 class="form-heading">Update Booking</h1>
+    <form action="{{ url_for('update_booking', booking_id=booking.bookingID) }}" method="POST" class="form-card">
+      <div class="form-group">
+        <label for="travel_date">Travel Date:</label>
+        <input type="date" id="travel_date" name="travel_date" value="{{ booking.travel_date }}" required>
+      </div>
+
+      <div class="form-group">
+        <label for="num_seats">Number of Seats:</label>
+        <input type="number" id="num_seats" name="num_seats" min="1" max="10" value="{{ booking.num_seats }}" required>
+      </div>
+
+      <div class="form-group">
+        <label for="seat_type">Seat Type:</label>
+        <select id="seat_type" name="seat_type" required>
+          <option value="Economy" {% if booking.seat_type == 'Economy' %}selected{% endif %}>Economy</option>
+          <option value="Business" {% if booking.seat_type == 'Business' %}selected{% endif %}>Business</option>
+        </select>
+      </div>
+
+      <button type="submit" class="submit-btn">Update Booking</button>
+    </form>
+  </div>
+</body>
+</html>
