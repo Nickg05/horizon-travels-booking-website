@@ -44,6 +44,12 @@ The website should run on your localhost.
 
 📸 Screenshots
 
+![alt text](<Demo/Trip Selection 1.png>)
+![alt text](<Demo/Trip Selection 2.png>)
+![alt text](<Demo/Enter a Payemnt card.png>)
+![alt text](<Demo/View Bookings.png>)
+![alt text](<Demo/Update Bookings.png>)
+![alt text](<Demo/Admin Page.png>)
 
 
 
